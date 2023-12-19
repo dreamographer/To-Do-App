@@ -17,7 +17,7 @@ interface Props {
     setClosed: React.Dispatch<React.SetStateAction<note[]>>,
     setTodos: React.Dispatch<React.SetStateAction<note[]>>
 }
-const Section = ({ status, tasks, setTodos, setClosed, setTasks, todos, closed }: Props) => {
+const Section = ({ status, tasks, setTasks, todos, closed }: Props) => {
     const [{ isOver }, drop] = useDrop(
         () => ({
             accept: "task",
@@ -37,16 +37,7 @@ const Section = ({ status, tasks, setTodos, setClosed, setTasks, todos, closed }
     }
     
     const addItemToSection = (id: string) => {
-        // const mTask = tasks.map((ts) => ts.id == id ? { ...ts, status: status } : ts)
-    
-        // const updatedTodos = mTask.filter(task => task.status === 'todo');
-        // const updatedClosed = mTask.filter(task => task.status === 'closed');
-
         setTasks((prevTasks) => prevTasks.map(ts => ts.id === id ? {...ts, status} : ts));
-
-        // setTasks(() =>mTask);
-        // setTodos(()=>updatedTodos);
-        // setClosed(()=>updatedClosed);
         toast('task status changed', { icon: '👏' })
     }
     return (

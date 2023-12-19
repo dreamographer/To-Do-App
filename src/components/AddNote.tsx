@@ -25,6 +25,9 @@ function AddNote({tasks,setTasks}:Props){
         if (task.name.length<3) {
             return toast.error('Task must have at least 3 charcters')
         }
+        if (task.name.length > 10) {
+            return toast.error('Task can have maximum 10 character')
+        }
         // add the condition for max length
         console.log("new"+tasks);
         setTasks((prevTasks) => [...prevTasks, task])
@@ -38,8 +41,8 @@ function AddNote({tasks,setTasks}:Props){
     return(
         <>
         <label htmlFor="note">Add Tasks</label>
-        <form className="flex flex-col items-center mt-5"  onSubmit={handleSubmit}>
-            <div>
+        <form className=" items-center mt-5"  onSubmit={handleSubmit}>
+            <div className="">
             <input type="text" className="border bg-slate-100 rounded-md h-10 px-3"
             value={task.name} 
             name="note" id="note" onChange={handleChange}/>
