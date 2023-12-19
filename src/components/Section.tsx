@@ -31,7 +31,7 @@ const Section = ({ status, tasks, setTodos, setClosed, setTasks, todos, closed }
     let bg = 'bg-orange-500'
     let tasksToMap = todos
     if (status == 'closed') {
-        text = "Closed"
+        text = "closed"
         bg = 'bg-green-500'
         tasksToMap = closed
     }

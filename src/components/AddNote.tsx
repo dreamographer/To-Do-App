@@ -16,7 +16,6 @@ function AddNote({tasks,setTasks}:Props){
         name:'',
         status:'todo'
      }) 
-     
     const handleChange = (e: ChangeEvent<HTMLInputElement>)=>{
         const id = uuidv4()
         setTask({ ...task, id: id, name: e.target.value })
@@ -27,9 +26,7 @@ function AddNote({tasks,setTasks}:Props){
             return toast.error('Task must have at least 3 charcters')
         }
         // add the condition for max length
-        tasks = [task,...tasks]
         console.log("new"+tasks);
-        
         setTasks((prevTasks) => [...prevTasks, task])
         toast.success('Note added Successfully')
         setTask({
@@ -45,8 +42,7 @@ function AddNote({tasks,setTasks}:Props){
             <div>
             <input type="text" className="border bg-slate-100 rounded-md h-10 px-3"
             value={task.name} 
-            name="note" id="note" 
-                        onChange={handleChange}/>
+            name="note" id="note" onChange={handleChange}/>
             <button type="submit" className="bg-blue-300 h-10 rounded-md px-3 ml-3">Add</button>
             </div>
         </form>

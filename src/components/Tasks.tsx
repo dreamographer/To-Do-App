@@ -31,18 +31,21 @@ const Tasks = ({ task, tasks, setTasks }: Props)=>{
     const handleEdit = (id: string, e: ChangeEvent<HTMLInputElement>) => {
         const mTask = tasks.map((ts) => ts.id == id ? { ...ts, name:e.target.value  } : ts)
         setTasks(()=>mTask)
-
         // toast("Task updated", { icon: '👏' })
         // setEdit(false)
     }
     const handleRemove=(id:string)=>{
-        if(tasks.map((ts)=>(ts.status=='cancelles'&&ts.id==id)?true:false)){
-            const fTask = tasks.filter((ts) => ts.id != id)
-            setTasks(()=>fTask)
-            return
-        }
+        // if(tasks.map((ts)=>(ts.status=='closed'&&ts.id==id)?true:false)){
+        //     const fTask = tasks.filter((ts) => ts.id != id)
+        //     setTasks(()=>fTask)
+        //     return
+        // }
         // const mTask = tasks.map((ts) => ts.id == id ? { ...ts, status: 'closed' } : ts)
-        // setTasks(mTask)
+        const fTask = tasks.filter((ts) => ts.id != id)
+            setTasks(()=>fTask)
+            console.log(tasks);
+            
+        // setTasks(()=>mTask)
  
         toast("Task closed",{icon:'👏'})
     }

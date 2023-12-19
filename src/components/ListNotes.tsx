@@ -16,10 +16,9 @@ function ListNote({ tasks, setTasks }: Props) {
     useEffect(() => {
         const fTodos = tasks.filter(task => task.status == 'todo')
         const fClosed = tasks.filter(task => task.status == 'closed')
-        setTodos(fTodos)
-        setClosed(fClosed)
+        setTodos(()=>fTodos)
+        setClosed(()=>fClosed)
     },[tasks])
-
     const stautuses = ['todo', 'closed']
     return (
 
