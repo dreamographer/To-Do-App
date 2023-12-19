@@ -1,4 +1,4 @@
-import { useDrag, useDrop } from "react-dnd";
+import {  useDrop } from "react-dnd";
 import Header from "./Header";
 import Tasks from "./Tasks";
 import toast from "react-hot-toast";
@@ -18,7 +18,7 @@ interface Props {
     setTodos: React.Dispatch<React.SetStateAction<note[]>>
 }
 const Section = ({ status, tasks, setTasks, todos, closed }: Props) => {
-    const [{ isOver }, drop] = useDrop(
+    const [{  }, drop] = useDrop(
         () => ({
             accept: "task",
             drop: (item:{id:string}) => addItemToSection(item.id),
